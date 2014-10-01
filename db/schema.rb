@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930135318) do
+ActiveRecord::Schema.define(version: 20141001092227) do
 
   create_table "asig_tags", force: true do |t|
     t.integer  "recurso_id"
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tipo"
   end
 
   create_table "asignaturas", force: true do |t|
@@ -106,7 +107,6 @@ ActiveRecord::Schema.define(version: 20140930135318) do
   create_table "tags", force: true do |t|
     t.string   "nombre"
     t.text     "descripcion"
-    t.integer  "tipo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

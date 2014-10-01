@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VacacionesTest < ActiveSupport::TestCase
+class PatronDescansoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
