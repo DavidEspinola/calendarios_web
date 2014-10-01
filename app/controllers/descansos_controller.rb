@@ -1,0 +1,2 @@
+class DescansosController < ApplicationController
+end

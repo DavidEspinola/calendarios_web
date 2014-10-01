@@ -1,0 +1,2 @@
+class CalendariosController < ApplicationController
+end
