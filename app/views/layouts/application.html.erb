@@ -7,14 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav>
-		<ul>
+<div>
+	<nav class="navbar navbar-default" role="navigation">
+		<ul class="nav navbar-nav">
 			<li><%= link_to "Clases", clases_path %></li>
 			<li><%= link_to "Asignaturas", asignaturas_path %></li>
 		</ul>
-
 	</nav>
-<%= yield %>
-
+</div>
+<div id="contenido">
+	<%= yield %>
+</div>
 </body>
 </html>

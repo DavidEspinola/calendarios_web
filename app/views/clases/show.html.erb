@@ -1,31 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @clase.nombre %>
-</p>
+<table class="table panel panel-default">
+	<tr>
+		<td><strong>Nombre</strong></td>
+  		<td><%= @clase.nombre %></td>
+	</tr>
+	<tr>
+		<td><strong>Descripción</strong></td>
+  		<td><%= @clase.descripcion %></td>
+	</tr>
+	<tr>
+		<td><strong>Recursos</strong></td>
+  		<td><%= @clase.recursos %></td>
+	<tr>
+	<tr>
+		<td><strong>Tags</strong></td>
+  		<td><%= @clase.asig_tag_id %></td>
+	</tr>
+</table>
 
-<p>
-  <strong>Descripción:</strong>
-  <%= @clase.descripcion %>
-</p>
-
-<p>
-  <strong>Recursos:</strong>
-  <%= @clase.recursos %>
-</p>
-
-<p>
-	<strong>Esta clase aparece en las asignaturas:</strong>
-	<ul>
-		<% @clase.asignaturas.each do |asignatura| %>
-			<%= content_tag_for(:li, asignatura) do %>
-				<%= link_to asignatura.nombre, asignatura_path(asignatura) %>
-			<% end %>
+<% if @clase.asignaturas.size != 0 %>
+<strong>Esta clase aparece en las asignaturas:</strong>
+<ul>
+	<% @clase.asignaturas.each do |asignatura| %>
+		<%= content_tag_for(:li, asignatura) do %>
+			<%= link_to asignatura.nombre, asignatura_path(asignatura) %>
 		<% end %>
-	</ul>
+	<% end %>
+</ul>
+<% end %>
 
-<p>
-
-<%= link_to 'Editar', edit_clase_path(@clase) %> |
-<%= link_to 'Atrás', clases_path %>
+<div class="btn-group">
+<%= link_to 'Editar', edit_clase_path(@clase), class: "btn btn-default" %>
+<%= link_to 'Inicio', clases_path, class: "btn btn-default" %>
+</div>

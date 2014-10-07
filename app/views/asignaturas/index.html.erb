@@ -1,12 +1,12 @@
 <h1>Listado de asignaturas</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Descripción</th>
       <th>Tags</th>
-      <th colspan="2"></th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -17,4 +17,4 @@
 
 <br>
 
-<%= link_to 'Nueva Asignatura', new_asignatura_path %>
+<%= link_to 'Nueva Asignatura', new_asignatura_path, class: "btn btn-default" %>

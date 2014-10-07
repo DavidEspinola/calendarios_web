@@ -1,27 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @asignatura.nombre %>
-</p>
+<table class="table panel panel-default">
+	<tr>
+		<td><strong>Nombre</strong></td>
+  		<td><%= @asignatura.nombre %></td>
+	</tr>
+	<tr>
+		<td><strong>Descripción</strong></td>
+  		<td><%= @asignatura.descripcion %></td>
+	</tr>
+	<tr>
+		<td><strong>Tags</strong></td>
+  		<td><%= @asignatura.asig_tag_id %></td>
+	</tr>
+</table>
 
-<p>
-  <strong>Descripción:</strong>
-  <%= @asignatura.descripcion %>
-</p>
-
-<p>
-	<% if @asignatura.patron_clases.size != 0 %>
-		<strong>Esta asignatura contiene las clases:</strong>
-		<ul>
-			<% @asignatura.patron_clases.each do |patron| %>
-				<%= content_tag_for(:li, patron) do %>
-					<%= link_to patron.clase.nombre, clase_path(patron.clase) %> (<%= pluralize(patron.duracion, "día") %>).
-				<% end %>
+<% if @asignatura.patron_clases.size != 0 %>
+	<strong>Esta asignatura contiene las clases:</strong>
+	<ul class="list-group">
+		<% @asignatura.patron_clases.each do |patron| %>
+			<%= content_tag_for(:li, patron, class: "list-group-item") do %>
+				<%= link_to patron.clase.nombre, clase_path(patron.clase) %>
+				<span class="badge"><%= pluralize(patron.duracion, "día") %></span>
 			<% end %>
-		</ul>
-	<% end %>
-<p>
+		<% end %>
+	</ul>
+<% end %>
 
-<%= link_to 'Editar', edit_asignatura_path(@asignatura) %> |
-<%= link_to 'Atrás', asignaturas_path %>
+<div class="btn-group">
+<%= link_to 'Editar', edit_asignatura_path(@asignatura), class: "btn btn-default" %>
+<%= link_to 'Inicio', asignaturas_path, class: "btn btn-default" %>
+</div>
