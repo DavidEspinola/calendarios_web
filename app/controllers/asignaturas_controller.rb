@@ -1,5 +1,5 @@
 class AsignaturasController < ApplicationController
-  before_action :set_asignatura, only: [:show, :edit, :update, :destroy]
+  before_action :set_asignatura, only: [:edit, :update, :destroy]
 
   # GET /asignaturas
   # GET /asignaturas.json
@@ -10,6 +10,7 @@ class AsignaturasController < ApplicationController
   # GET /asignaturas/1
   # GET /asignaturas/1.json
   def show
+  	@asignatura = Asignatura.includes(:patron_clases,:clases).find(params[:id])
   end
 
   # GET /asignaturas/new

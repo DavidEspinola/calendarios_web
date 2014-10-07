@@ -11,14 +11,16 @@
 </p>
 
 <p>
-	<strong>Esta asignatura aparece en las clases:</strong>
-	<ul>
-		<% @asignatura.clases.each do |clase| %>
-			<%= content_tag_for(:li, clase) do %>
-				<%= link_to clase.nombre, clase_path(clase) %>
+	<% if @asignatura.patron_clases.size != 0 %>
+		<strong>Esta asignatura contiene las clases:</strong>
+		<ul>
+			<% @asignatura.patron_clases.each do |patron| %>
+				<%= content_tag_for(:li, patron) do %>
+					<%= link_to patron.clase.nombre, clase_path(patron.clase) %> (<%= pluralize(patron.duracion, "día") %>).
+				<% end %>
 			<% end %>
-		<% end %>
-	</ul>
+		</ul>
+	<% end %>
 <p>
 
 <%= link_to 'Editar', edit_asignatura_path(@asignatura) %> |
