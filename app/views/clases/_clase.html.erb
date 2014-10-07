@@ -3,6 +3,6 @@
 	<td><%= clase.descripcion %></td>
 	<td><%= clase.recursos %></td>
 	<td><%= clase.asig_tag_id %></td>
-	<td><%= link_to 'Editar', edit_clase_path(clase) %> 
-		<%= link_to 'Eliminar', clase, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+<td><%= link_to '', edit_clase_path(clase), class: "glyphicon glyphicon-cog", title: "Editar" %>
+		<%= link_to '', clase, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "glyphicon glyphicon-trash", title: "Eliminar" %>
 <% end %>
