@@ -1,10 +1,10 @@
-<%= form_for(@clase) do |f| %>
-  <% if @clase.errors.any? %>
+<%= form_for(@asignatura) do |f| %>
+  <% if @asignatura.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@clase.errors.count, "error") %> han impedido que esta clase se guarde:</h2>
+      <h2><%= pluralize(@asignatura.errors.count, "error") %> han impedido que esta asignatura se guarde:</h2>
 
       <ul>
-      <% @clase.errors.full_messages.each do |message| %>
+      <% @asignatura.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -18,10 +18,6 @@
   <div class="field">
     <%= f.label :descripcion %><br>
     <%= f.text_area :descripcion %>
-  </div>
-  <div class="field">
-    <%= f.label :recursos %><br>
-    <%= f.text_field :recursos %>
   </div>
   <div class="actions">
     <%= f.submit "Aceptar" %>

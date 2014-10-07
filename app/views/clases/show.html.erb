@@ -15,6 +15,17 @@
   <%= @clase.recursos %>
 </p>
 
+<p>
+	<strong>Esta clase aparece en las asignaturas:</strong>
+	<ul>
+		<% @clase.asignaturas.each do |asignatura| %>
+			<%= content_tag_for(:li, asignatura) do %>
+				<%= link_to asignatura.nombre, asignatura_path(asignatura) %>
+			<% end %>
+		<% end %>
+	</ul>
+
+<p>
 
 <%= link_to 'Editar', edit_clase_path(@clase) %> |
 <%= link_to 'Atrás', clases_path %>

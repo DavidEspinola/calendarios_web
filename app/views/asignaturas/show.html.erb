@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @asignatura.nombre %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @asignatura.descripcion %>
+</p>
+
+<p>
+	<strong>Esta asignatura aparece en las clases:</strong>
+	<ul>
+		<% @asignatura.clases.each do |clase| %>
+			<%= content_tag_for(:li, clase) do %>
+				<%= link_to clase.nombre, clase_path(clase) %>
+			<% end %>
+		<% end %>
+	</ul>
+<p>
+
+<%= link_to 'Editar', edit_asignatura_path(@asignatura) %> |
+<%= link_to 'Atrás', asignaturas_path %>

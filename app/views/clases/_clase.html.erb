@@ -1,0 +1,8 @@
+<%= content_tag_for(:tr, clase) do %>
+	<td><%= link_to clase.nombre, clase %></td>
+	<td><%= clase.descripcion %></td>
+	<td><%= clase.recursos %></td>
+	<td><%= clase.asig_tag_id %></td>
+	<td><%= link_to 'Editar', edit_clase_path(clase) %></td>
+	<td><%= link_to 'Eliminar', clase, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+<% end %>

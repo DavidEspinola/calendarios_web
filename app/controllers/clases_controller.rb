@@ -28,11 +28,9 @@ class ClasesController < ApplicationController
 
     respond_to do |format|
       if @clase.save
-        format.html { redirect_to @clase, notice: 'Clase was successfully created.' }
-        format.json { render :show, status: :created, location: @clase }
+        format.html { redirect_to @clase, notice: 'La clase se ha creado con exito.' }
       else
         format.html { render :new }
-        format.json { render json: @clase.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +40,9 @@ class ClasesController < ApplicationController
   def update
     respond_to do |format|
       if @clase.update(clase_params)
-        format.html { redirect_to @clase, notice: 'Clase was successfully updated.' }
-        format.json { render :show, status: :ok, location: @clase }
+        format.html { redirect_to @clase, notice: 'La clase se ha editado con exito.' }
       else
         format.html { render :edit }
-        format.json { render json: @clase.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,8 +52,7 @@ class ClasesController < ApplicationController
   def destroy
     @clase.destroy
     respond_to do |format|
-      format.html { redirect_to clases_url, notice: 'Clase was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to clases_url, notice: 'La clase se ha eliminado con exito.' }
     end
   end
 

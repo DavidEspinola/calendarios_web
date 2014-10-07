@@ -1,0 +1,7 @@
+<%= content_tag_for(:tr, asignatura) do %>
+	<td><%= link_to asignatura.nombre, asignatura %></td>
+	<td><%= asignatura.descripcion %></td>
+	<td><%= asignatura.asig_tag_id %></td>
+	<td><%= link_to 'Editar', edit_asignatura_path(asignatura) %></td>
+	<td><%= link_to 'Eliminar', asignatura, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+<% end %>
