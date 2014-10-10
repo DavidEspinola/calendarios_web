@@ -36,7 +36,7 @@
 				<%= content_tag_for(:li, patron, class: "list-group-item") do %>
 					<%= link_to patron.clase.nombre, clase_path(patron.clase) %>
 					<span class="badge"><%= pluralize(patron.duracion, "día") %></span>
-					<%= link_to '', patron, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "glyphicon glyphicon-trash", title: "Eliminar" %>
+					<%= link_to '', patron, method: :delete, data: { confirm: '¿Estás seguro de que quieres eliminar esta clase de la asignatura?' }, class: "glyphicon glyphicon-trash", title: "Eliminar" %>
 				<% end %>
 			<% end %>
 		</ul>
