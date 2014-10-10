@@ -55,4 +55,5 @@ Rails.application.routes.draw do
   #   end
   resources :clases
   resources :asignaturas
+  resources :patron_clases
 end

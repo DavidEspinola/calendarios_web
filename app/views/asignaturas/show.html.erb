@@ -18,7 +18,7 @@
 <% if @asignatura.patron_clases.size != 0 %>
 	<strong>Esta asignatura contiene las clases:</strong>
 	<ul class="list-group">
-		<% @asignatura.patron_clases.each do |patron| %>
+		<% @asignatura.patron_clases.order(:orden).each do |patron| %>
 			<%= content_tag_for(:li, patron, class: "list-group-item") do %>
 				<%= link_to patron.clase.nombre, clase_path(patron.clase) %>
 				<span class="badge"><%= pluralize(patron.duracion, "día") %></span>

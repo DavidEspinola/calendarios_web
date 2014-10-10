@@ -1,5 +1,6 @@
 class AsignaturasController < ApplicationController
-  before_action :set_asignatura, only: [:edit, :update, :destroy]
+  before_action :set_asignatura, only: [:update, :destroy]
+  before_action :set_asignatura_patron, only: [:show, :edit]
 
   # GET /asignaturas
   # GET /asignaturas.json
@@ -10,7 +11,6 @@ class AsignaturasController < ApplicationController
   # GET /asignaturas/1
   # GET /asignaturas/1.json
   def show
-  	@asignatura = Asignatura.includes(:patron_clases,:clases).find(params[:id])
   end
 
   # GET /asignaturas/new
@@ -61,6 +61,9 @@ class AsignaturasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_asignatura
       @asignatura = Asignatura.find(params[:id])
+    end
+    def set_asignatura_patron
+      @asignatura = Asignatura.includes(:patron_clases,:clases).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
