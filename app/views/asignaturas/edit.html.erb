@@ -35,8 +35,8 @@
 			<% @asignatura.patron_clases.order(:orden).each do |patron| %>
 				<%= render "edicion_patron_clase", patron: patron %>
 			<% end %>
-			<%# TODO plantear cambios en el parcial para permitir cargarlo vía Javascript para un patrón nuevo %>
-			<%# render "edicion_patron_clase", patron: @asignatura.patron_clases.new %>
+			<%# Un nuevo patrón de clase se llamaría a este render desde js %>
+			<%# render "edicion_patron_clase", clase: 3 %>
 		</ul>
 		<div class="panel panel-default">
   			<a href="#"><div class="panel-body"><span class="glyphicon glyphicon-plus"></span> Añadir clase</div></a>
