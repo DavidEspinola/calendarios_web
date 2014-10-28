@@ -1,5 +1,5 @@
 class Asignatura < ActiveRecord::Base
-	has_many :patron_clases
+	has_many :patron_clases, dependent: :destroy
 	has_many :clases, through: :patron_clases
 
 	has_many :patron_asignaturas
