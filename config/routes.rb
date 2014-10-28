@@ -56,4 +56,5 @@ Rails.application.routes.draw do
   resources :clases
   resources :asignaturas
   resources :patron_clases
+  post 'patron_clases/edicion_multiple' => 'patron_clases#edicion_multiple'
 end

@@ -28,7 +28,7 @@ class PatronClasesController < ApplicationController
 
     respond_to do |format|
       if @patron_clase.save
-        format.html { redirect_to @patron_clase, notice: 'La patron_clase se ha creado con exito.' }
+        format.html { redirect_to @patron_clase, notice: 'El patron_clase se ha creado con exito.' }
       else
         format.html { render :new }
       end
@@ -40,7 +40,7 @@ class PatronClasesController < ApplicationController
   def update
     respond_to do |format|
       if @patron_clase.update(patron_clase_params)
-        format.html { redirect_to @patron_clase, notice: 'La patron_clase se ha editado con exito.' }
+        format.html { redirect_to @patron_clase, notice: 'El patron_clase se ha editado con exito.' }
       else
         format.html { render :edit }
       end
@@ -53,6 +53,21 @@ class PatronClasesController < ApplicationController
     @patron_clase.destroy
     respond_to do |format|
       format.html { redirect_to :back }
+    end
+  end
+
+  def edicion_multiple
+    @patrones = []
+    @fallidos = []
+    params[:patrones].each do |patron_hash|
+      if @patron_clase.update(patron_clase_params)
+        @patrones << patron
+      else
+        @fallidos << patron
+      end
+    end
+    respond_to do |format|
+        format.html { redirect_to asignaturas_path, notice: 'Cambios cargados correctamente' }
     end
   end
 
