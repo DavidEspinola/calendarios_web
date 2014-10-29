@@ -59,11 +59,18 @@ class PatronClasesController < ApplicationController
   def edicion_multiple
     @patrones = []
     @fallidos = []
-    params[:patrones].each do |patron_hash|
-      if @patron_clase.update(patron_clase_params)
-        @patrones << patron
+    if params[:patrones].is_a?(Hash)
+      @patrones_hash = params[:patrones].values
+    else
+      @patrones_hash = params[:patrones]
+    end
+    @patrones_hash.each do |patron_hash|
+      puts patron_hash
+      @patron_clase = PatronClase.find(patron_hash[:id])
+      if @patron_clase.update(patron_hash)
+        @patrones << @patron_clase
       else
-        @fallidos << patron
+        @fallidos << @patron_clase
       end
     end
     respond_to do |format|
@@ -79,6 +86,6 @@ class PatronClasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patron_clase_params
-      params.require(:asignatura,:clase).permit(:orden, :duracion)
+      params.require(:patrones)
     end
 end
