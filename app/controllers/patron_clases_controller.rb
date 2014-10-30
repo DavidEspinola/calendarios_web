@@ -56,36 +56,36 @@ class PatronClasesController < ApplicationController
     end
   end
 
+  #POST /patron_clases/edicion_multiple.json
   def edicion_multiple
-    @patrones = []
-    @fallidos = []
-    if params[:patrones].is_a?(Hash)
-      @patrones_hash = params[:patrones].values
-    else
-      @patrones_hash = params[:patrones]
-    end
-    @patrones_hash.each do |patron_hash|
-      puts patron_hash
-      @patron_clase = PatronClase.find(patron_hash[:id])
-      if @patron_clase.update(patron_hash)
-        @patrones << @patron_clase
+    @errores = {edicion: 0, creacion:0, borrado:0}
+
+    editar = params[:editar]
+
+    if editar != nil
+      if editar.is_a?(Hash)
+        @patrones_hash = editar.values
       else
-        @fallidos << @patron_clase
+        @patrones_hash = editar
+      end
+
+      @patrones_hash.each do |patron_hash|
+        @patron_clase = PatronClase.find(patron_hash[:id])
+        unless @patron_clase.update(patron_hash)
+          @errores.edicion = @errores.edicion + 1
+        end
       end
     end
+
     respond_to do |format|
-        format.html { redirect_to asignaturas_path, notice: 'Cambios cargados correctamente' }
+        format.json { render json: @errores }
     end
+
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_patron_clase
       @patron_clase = PatronClase.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def patron_clase_params
-      params.require(:patrones)
     end
 end
