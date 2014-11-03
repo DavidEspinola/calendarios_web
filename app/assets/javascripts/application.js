@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-ui/sortable
+//= require bootstrap-tagsinput
 //= require_tree .
