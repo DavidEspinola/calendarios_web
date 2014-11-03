@@ -11,28 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006115541) do
-
-  create_table "asig_tags", force: true do |t|
-    t.integer  "recurso_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "tipo"
-  end
-
-  add_index "asig_tags", ["recurso_id"], name: "index_asig_tags_on_recurso_id"
-  add_index "asig_tags", ["tag_id"], name: "index_asig_tags_on_tag_id"
+ActiveRecord::Schema.define(version: 20141103083300) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
     t.text     "descripcion"
-    t.integer  "asig_tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "asignaturas", ["asig_tag_id"], name: "index_asignaturas_on_asig_tag_id"
 
   create_table "calendarios", force: true do |t|
     t.integer  "programa_id"
@@ -50,12 +36,9 @@ ActiveRecord::Schema.define(version: 20141006115541) do
     t.string   "nombre"
     t.text     "descripcion"
     t.string   "recursos"
-    t.integer  "asig_tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "clases", ["asig_tag_id"], name: "index_clases_on_asig_tag_id"
 
   create_table "datos_calendarios", force: true do |t|
     t.integer  "calendario_id"
@@ -120,16 +103,6 @@ ActiveRecord::Schema.define(version: 20141006115541) do
   end
 
   create_table "programas", force: true do |t|
-    t.string   "nombre"
-    t.text     "descripcion"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "programas", ["tag_id"], name: "index_programas_on_tag_id"
-
-  create_table "tags", force: true do |t|
     t.string   "nombre"
     t.text     "descripcion"
     t.datetime "created_at"

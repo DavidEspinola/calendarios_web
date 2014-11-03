@@ -4,7 +4,4 @@ class Clase < ActiveRecord::Base
 
 	has_many :datos_calendarios
 	has_many :calendarios, through: :datos_calendarios
-
-	has_many :asig_tags
-	has_many :tags, through: :asig_tags
 end
