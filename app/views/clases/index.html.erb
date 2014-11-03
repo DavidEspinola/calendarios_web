@@ -1,5 +1,8 @@
 <h1>Listado de clases</h1>
+<br>
 <%= link_to 'Nueva Clase', new_clase_path, class: "btn btn-default" %>
+<br>
+<br>
 <table class="table">
   <thead>
     <tr>
@@ -15,3 +18,7 @@
     <%= render @clases %>
   </tbody>
 </table>
+
+<%= paginate @clases, :window => 2 %>
+
+<br>

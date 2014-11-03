@@ -27,3 +27,10 @@ body{
 		padding-right:20px;
 	}
 }
+
+.pagination .disabled a, .pagination .disabled a:hover, .pagination .disabled a:focus{
+	font-weight: bold;
+	cursor: default;
+	color: #D3D3D3;
+	background-color: #FAFAFA;
+}

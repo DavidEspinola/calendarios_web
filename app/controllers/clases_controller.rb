@@ -4,7 +4,7 @@ class ClasesController < ApplicationController
   # GET /clases
   # GET /clases.json
   def index
-    @clases = Clase.all
+    @clases = Clase.order(:nombre).page(params[:page]).per(30)
   end
 
   # GET /clases/1

@@ -5,7 +5,7 @@ class AsignaturasController < ApplicationController
   # GET /asignaturas
   # GET /asignaturas.json
   def index
-    @asignaturas = Asignatura.all
+    @asignaturas = Asignatura.order(:nombre).page(params[:page]).per(20)
   end
 
   # GET /asignaturas/1

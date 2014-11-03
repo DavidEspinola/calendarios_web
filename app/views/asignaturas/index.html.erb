@@ -1,6 +1,8 @@
 <h1>Listado de asignaturas</h1>
+<br>
 <%= link_to 'Nueva Asignatura', new_asignatura_path, class: "btn btn-default" %>
-
+<br>
+<br>
 <table class="table">
   <thead>
     <tr>
@@ -15,3 +17,7 @@
     <%= render @asignaturas %>
   </tbody>
 </table>
+
+<%= paginate @asignaturas, :window => 2 %>
+
+<br>
