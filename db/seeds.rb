@@ -14,11 +14,11 @@ ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 
 ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'patron_clases'")
 
 for i in 1..100
-	Clase.create(nombre: "Clase #{i}", descripcion: "Esta es la clase #{i}.", recursos: "Url del SCORM en la red y otros recursos")
+	Clase.create(nombre: "Clase #{i}", descripcion: "Esta es la clase #{i}.", recursos: "Url del SCORM en la red y otros recursos", tags: "Prueba #{rand(20)+1},Prueba #{rand(20)+1}")
 end
 
 for i in 1..100
-	Asignatura.create(nombre: "Asignatura #{i}", descripcion: "Esta es la asignatura #{i}.")
+	Asignatura.create(nombre: "Asignatura #{i}", descripcion: "Esta es la asignatura #{i}.", tags: "Prueba #{rand(20)+1},Prueba #{rand(20)+1}")
 end
 
 for i in 1..100

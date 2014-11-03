@@ -1,5 +1,5 @@
 <h1>Listado de clases</h1>
-
+<%= link_to 'Nueva Clase', new_clase_path, class: "btn btn-default" %>
 <table class="table">
   <thead>
     <tr>
@@ -15,7 +15,3 @@
     <%= render @clases %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Nueva Clase', new_clase_path, class: "btn btn-default" %>

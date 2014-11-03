@@ -11,20 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field input-group">
-    <%= f.label :nombre, class: "input-group-addon" %>
-    <%= f.text_field :nombre, class: "form-control" %>
-  </div>
-  <div class="field input-group">
-    <%= f.label :descripcion, class: "input-group-addon" %>
-    <%= f.text_area :descripcion, class: "form-control" %>
-  </div>
-  <div class="field input-group">
-    <%= f.label :recursos, class: "input-group-addon" %>
-    <%= f.text_field :recursos, class: "form-control" %>
-  </div>
+  <table class="table panel panel-default">
+    <tr>
+      <td><strong><%= f.label :nombre %></strong></td>
+        <td><%= f.text_field :nombre, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <td><strong><%= f.label :descripcion %></strong></td>
+        <td><%= f.text_area :descripcion, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <td><strong><%= f.label :recursos %></strong></td>
+        <td><%= f.text_field :recursos, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <td><strong><%= f.label :tags %></strong></td>
+        <td><%= f.text_field :tags, class: "form-control" %></td>
+    </tr>
+  </table>
+
   <div class="actions btn-group">
-    <%= f.submit "Aceptar", class: "btn btn-primary" %>
-    <%= link_to 'Inicio', clases_path, class: "btn btn-default" %>
+      <%= f.submit "Aceptar", class: "btn btn-primary" %>
+      <%= link_to 'Inicio', clases_path, class: "btn btn-default" %>
+      <%= link_to 'Volver', @clase, class: "btn btn-default" %>
   </div>
 <% end %>

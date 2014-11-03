@@ -15,7 +15,12 @@
 	<tr>
 	<tr>
 		<td><strong>Tags</strong></td>
-  		<td><%= @clase.asig_tag_id %></td>
+  		<td><% tags = @clase.tags.split(",") %>
+			<% tags.each do |tag| %>
+			<%# Añadir link a búsqueda por ese tag %>
+			<span class="label label-info"><%= tag.strip %></span>
+			<% end %>
+		</td>
 	</tr>
 </table>
 

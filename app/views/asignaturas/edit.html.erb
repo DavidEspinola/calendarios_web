@@ -24,8 +24,8 @@
 	  		<td><%= f.text_area :descripcion, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td><strong>Tags</strong></td>
-	  		<td><%= @asignatura.asig_tag_id %></td>
+			<td><strong><%= f.label :tags%></strong></td>
+	  		<td><%= f.text_field :tags, class: "form-control" %></td>
 		</tr>
 	</table>
 
