@@ -19,7 +19,7 @@
     onTagExists: function(item, $tag) {
       $tag.hide().fadeIn();
     },
-    trimValue: false,
+    trimValue: true,
     allowDuplicates: false
   };
 
@@ -43,8 +43,7 @@
 
     this.$element.after(this.$container);
 
-    var inputWidth = (this.inputSize < 3 ? 3 : this.inputSize) + "em";
-    this.$input.get(0).style.cssText = "width: " + inputWidth + " !important;";
+    this.$input.get(0).style.cssText = "width: 6em !important;";
     this.build(options);
   }
 
@@ -611,7 +610,9 @@
    * Initialize tagsinput behaviour on inputs and selects which have
    * data-role=tagsinput
    */
-  $(function() {
+  var init_turbolinks = function() {
     $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
-  });
+  };
+  $(document).ready(init_turbolinks);
+  $(document).on('page:load', init_turbolinks);
 })(window.jQuery);
