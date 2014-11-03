@@ -10,5 +10,5 @@
 <%= content_tag_for(:li, patron, class: "list-group-item", data: {duracion:patron.duracion, orden: patron.orden, clase: patron.clase.id}) do %>
 	<%= patron.clase.nombre %>
 	<span class="badge"><input type="number" value="<%= patron.duracion %>" min="1" max="999"></input> Día(s)</span>
-	<%=link_to '', patron, method: :delete, data: { confirm: '¿Estás seguro de que quieres eliminar esta clase de la asignatura?' }, class: "glyphicon glyphicon-trash", title: "Eliminar" %>
+	<a href="#" class="eliminar glyphicon glyphicon-trash" title="Eliminar"></a>
 <% end %>

@@ -4,9 +4,16 @@
 .edit_asignatura .patron_clase.list-group-item{
 	overflow:hidden;
 	cursor:move;
+	a{
+		text-decoration: none;
+	}
 }
 
-.badge input{
+.edit_asignatura .badge input{
 	color:#777777;
 	width:45px;
+}
+
+.edit_asignatura .disabled{
+	text-decoration: line-through;
 }

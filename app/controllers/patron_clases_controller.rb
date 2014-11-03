@@ -58,7 +58,7 @@ class PatronClasesController < ApplicationController
 
   #POST /patron_clases/edicion_multiple.json
   def edicion_multiple
-    @errores = {edicion: 0, creacion:0, borrado:0}
+    @resultado = { ediciones:{total:0, error:0}, creaciones:{total:0, error:0}, borrados:{total:0,error:0}}
 
     editar = params[:editar]
 
@@ -68,17 +68,34 @@ class PatronClasesController < ApplicationController
       else
         @patrones_hash = editar
       end
-
+      @resultado[:ediciones][:total] = @patrones_hash.size
       @patrones_hash.each do |patron_hash|
         @patron_clase = PatronClase.find(patron_hash[:id])
         unless @patron_clase.update(patron_hash)
-          @errores.edicion = @errores.edicion + 1
+          @resultado[:ediciones][:error] += 1
+        end
+      end
+    end
+
+    eliminar = params[:eliminar]
+
+    if eliminar != nil
+      if eliminar.is_a?(Hash)
+        @patrones_hash = eliminar.values
+      else
+        @patrones_hash = eliminar
+      end
+      @resultado[:borrados][:total] = @patrones_hash.size
+      @patrones_hash.each do |patron_hash|
+        @patron_clase = PatronClase.find(patron_hash[:id])
+        unless @patron_clase.destroy
+          @resultado[:borrados][:error] += 1
         end
       end
     end
 
     respond_to do |format|
-        format.json { render json: @errores }
+      format.json { render json: @resultado }
     end
 
   end
