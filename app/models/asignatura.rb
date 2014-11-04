@@ -7,4 +7,13 @@ class Asignatura < ActiveRecord::Base
 
 	has_many :datos_calendarios
 	has_many :calendarios, through: :datos_calendarios
+
+	scope :search, ->(keyword){ where('keywords LIKE?',"%#{keyword.downcase}%") if keyword.present?}
+
+	before_save :generar_keywords
+
+	protected
+		def generar_keywords
+			self.keywords = [nombre,descripcion,tags].map(&:downcase).join(' ')
+		end
 end

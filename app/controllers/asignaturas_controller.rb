@@ -5,7 +5,7 @@ class AsignaturasController < ApplicationController
   # GET /asignaturas
   # GET /asignaturas.json
   def index
-    @asignaturas = Asignatura.order(:nombre).page(params[:page]).per(20)
+    @asignaturas = Asignatura.search(params[:busqueda]).order(:nombre).page(params[:page]).per(20)
   end
 
   # GET /asignaturas/1
@@ -68,6 +68,6 @@ class AsignaturasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asignatura_params
-      params.require(:asignatura).permit(:nombre, :descripcion)
+      params.require(:asignatura).permit(:nombre, :descripcion, :tags)
     end
 end

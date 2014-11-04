@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103084554) do
+ActiveRecord::Schema.define(version: 20141104075220) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141103084554) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "tags"
+    t.text     "keywords"
   end
 
   create_table "calendarios", force: true do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20141103084554) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "tags"
+    t.text     "keywords"
   end
 
   create_table "datos_calendarios", force: true do |t|
@@ -110,6 +112,7 @@ ActiveRecord::Schema.define(version: 20141103084554) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "tags"
+    t.text     "keywords"
   end
 
 end

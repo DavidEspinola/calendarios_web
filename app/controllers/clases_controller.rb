@@ -4,7 +4,7 @@ class ClasesController < ApplicationController
   # GET /clases
   # GET /clases.json
   def index
-    @clases = Clase.order(:nombre).page(params[:page]).per(30)
+    @clases = Clase.search(params[:busqueda]).order(:nombre).page(params[:page]).per(30)
   end
 
   # GET /clases/1
@@ -64,6 +64,6 @@ class ClasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clase_params
-      params.require(:clase).permit(:nombre, :descripcion, :recursos)
+      params.require(:clase).permit(:nombre, :descripcion, :recursos, :tags)
     end
 end
