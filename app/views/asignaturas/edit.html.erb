@@ -39,9 +39,11 @@
 			<%# render "edicion_patron_clase", clase: 3 %>
 		</ul>
 		<div class="panel panel-default">
-  			<a href="#"><div class="panel-body"><span class="glyphicon glyphicon-plus"></span> Añadir clase</div></a>
+  			<a href="#" data-toggle="modal" data-target="#nueva_clase"><div class="panel-body"><span class="glyphicon glyphicon-plus"></span> Añadir clase</div></a>
   		</div>
 	<% end %>
+
+	<%= render "modal_nueva_clase" %>
 
 	<div class="actions btn-group">
 	    <%= f.submit "Aceptar", class: "btn btn-primary" %>
