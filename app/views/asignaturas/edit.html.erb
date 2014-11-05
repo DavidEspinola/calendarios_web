@@ -43,11 +43,10 @@
   		</div>
 	<% end %>
 
-	<%= render "modal_nueva_clase" %>
-
 	<div class="actions btn-group">
 	    <%= f.submit "Aceptar", class: "btn btn-primary" %>
 	    <%= link_to 'Inicio', asignaturas_path, class: "btn btn-default" %>
 	    <%= link_to 'Volver', @asignatura, class: "btn btn-default" %>
 	</div>
 <% end %>
+<%= render "modal_nueva_clase" %>

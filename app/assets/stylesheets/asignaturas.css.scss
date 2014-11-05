@@ -1,19 +1,28 @@
 // Place all the styles related to the asignaturas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.edit_asignatura .patron_clase.list-group-item{
-	overflow:hidden;
-	cursor:move;
-	a{
-		text-decoration: none;
+.edit_asignatura{
+	.patron_clase.list-group-item{
+		overflow:hidden;
+		cursor:move;
+		a{
+			text-decoration: none;
+		}
+	}
+
+	.badge input{
+		color:#777777;
+		width:45px;
+	}
+
+	.disabled{
+		text-decoration: line-through;
 	}
 }
-
-.edit_asignatura .badge input{
-	color:#777777;
-	width:45px;
+.modal-footer .pagination{
+	margin:0px;
+	float:left;
 }
-
-.edit_asignatura .disabled{
-	text-decoration: line-through;
+.button_to, .button_to div{
+	display:inline !important;
 }

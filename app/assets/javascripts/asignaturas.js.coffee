@@ -10,9 +10,22 @@ ready = ->
     event.preventDefault()
     actualizarAsignatura(asignatura)
 
-  $(".edit_asignatura .eliminar").on("click", (event) ->
+  $(".edit_asignatura .list-group").on("click",".eliminar", (event) ->
     event.preventDefault()
     marcarborrado($(this))
+  )
+
+  $("#contenido_modal").on("click", ".clase", (event) ->
+    $(".clase").removeClass("info")
+    $(this).addClass("info")
+    nuevo = $(this).attr("id").match(/[0-9]+/g)[0]
+    nuevo = $(".modal-footer .button_to").attr("action").replace(/\d+/g,nuevo)
+    $(".modal-footer .button_to").attr("action",nuevo)
+  )
+  $("#contenido_modal").on("click", ".clase.info", (event) ->
+    $(this).removeClass("info")
+    nuevo = $(".modal-footer .button_to").attr("action").replace(/\d+/g,0)
+    $(".modal-footer .button_to").attr("action",nuevo)
   )
 
 $(document).ready(ready)

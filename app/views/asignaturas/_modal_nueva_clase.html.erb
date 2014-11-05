@@ -9,11 +9,26 @@
         <h4 class="modal-title">Selecciona una clase a añadir</h4>
       </div>
       <div class="modal-body">
-        <p>Contenido</p>
+        <%= render 'application/search_remote' %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Recursos</th>
+              <th>Tags</th>
+            </tr>
+          </thead>
+          <tbody id="contenido_modal">
+            <%= render partial: "modal_clase", locals: {clases: @clases} %>
+          </tbody>
+        </table>
+        
       </div>
       <div class="modal-footer">
+        <%= paginate @clases, :remote => true %>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Aceptar</button>
+        <%= button_to "Aceptar", {controller:"asignaturas", action: "nuevo_patron", id: "0"}, remote: true, method: :get, class: "btn btn-primary" %>
       </div>
     </div>
   </div>

@@ -1,0 +1,7 @@
+<% if @clase.to_i < 1 %>
+	alert("Selecciona una opción.")
+<% else %>
+	$(".list-group").append('<%= escape_javascript(render "edicion_patron_clase") %>');
+	$('#nueva_clase').modal('hide');
+	$('.edit_asignatura .list-group').sortable('refresh');
+<% end %>

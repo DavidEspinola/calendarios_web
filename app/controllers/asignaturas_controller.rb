@@ -20,6 +20,11 @@ class AsignaturasController < ApplicationController
 
   # GET /asignaturas/1/edit
   def edit
+    @clases = Clase.search(params[:busqueda]).order(:nombre).page(params[:page]).per(10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /asignaturas
@@ -55,6 +60,10 @@ class AsignaturasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to asignaturas_url, notice: 'La asignatura se ha eliminado con exito.' }
     end
+  end
+
+  def nuevo_patron
+    @clase=params[:id]
   end
 
   private

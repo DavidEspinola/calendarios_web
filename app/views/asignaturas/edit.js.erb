@@ -1,0 +1,5 @@
+<%# Plantilla para poblar el contenido del modal de inserción de nuevas clases en una asignatura %>
+$('div#nueva_clase #contenido_modal').html('<%= escape_javascript(render partial: "modal_clase", locals: {clases: @clases}) %>');
+$('div#nueva_clase .pagination').html('<%= escape_javascript(paginate(@clases, :remote => true).to_s) %>');
+var nuevo = $(".modal-footer .button_to").attr("action").replace(/\d+/g,0);
+$(".modal-footer .button_to").attr("action",nuevo);

@@ -2,9 +2,8 @@
 	unless defined? patron
 		patron = PatronClase.new() 
 		patron.duracion = 1
-		nombre = ""
 		patron.orden = 99
-		patron.clase = Clase.find(clase)
+		patron.clase = Clase.find(@clase)
 	end
 %>
 <%= content_tag_for(:li, patron, class: "list-group-item", data: {duracion:patron.duracion, orden: patron.orden, clase: patron.clase.id}) do %>

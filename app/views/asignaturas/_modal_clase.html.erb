@@ -1,0 +1,13 @@
+<% clases.each do |clase| %>
+	<%= content_tag_for(:tr, clase) do %>
+		<td><%= clase.nombre %></td>
+		<td><%= clase.descripcion %></td>
+		<td><%= clase.recursos %></td>
+		<td>
+			<% tags = clase.tags.split(",") %>
+			<% tags.each do |tag| %>
+				<span class="label label-info"><%= tag.strip %></span>
+			<% end %>
+		</td>
+	<% end %>
+<% end %>
