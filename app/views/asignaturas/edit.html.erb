@@ -29,19 +29,18 @@
 		</tr>
 	</table>
 
-	<% if @asignatura.patron_clases.size != 0 %>
-		<p><strong>Esta asignatura contiene las clases:</strong></p>
+	
+		<p><strong>Clases de la asignatura:</strong></p>
 		<ul class="list-group">
-			<% @asignatura.patron_clases.order(:orden).each do |patron| %>
-				<%= render "edicion_patron_clase", patron: patron %>
+			<% if @asignatura.patron_clases.size != 0 %>
+				<% @asignatura.patron_clases.order(:orden).each do |patron| %>
+					<%= render "edicion_patron_clase", patron: patron %>
+				<% end %>
 			<% end %>
-			<%# Un nuevo patrón de clase se llamaría a este render desde js %>
-			<%# render "edicion_patron_clase", clase: 3 %>
 		</ul>
 		<div class="panel panel-default">
   			<a href="#" data-toggle="modal" data-target="#nueva_clase"><div class="panel-body"><span class="glyphicon glyphicon-plus"></span> Añadir clase</div></a>
   		</div>
-	<% end %>
 
 	<div class="actions btn-group">
 	    <%= f.submit "Aceptar", class: "btn btn-primary" %>

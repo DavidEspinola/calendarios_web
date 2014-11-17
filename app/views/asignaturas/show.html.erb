@@ -21,7 +21,7 @@
 </table>
 
 <% if @asignatura.patron_clases.size != 0 %>
-	<strong>Esta asignatura contiene las clases:</strong>
+	<p><strong>Clases de la asignatura:</strong></p>
 	<ul class="list-group">
 		<% @asignatura.patron_clases.order(:orden).each do |patron| %>
 			<%= content_tag_for(:li, patron, class: "list-group-item") do %>
