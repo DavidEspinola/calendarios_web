@@ -79,19 +79,26 @@ actualizarAsignatura = (asignatura) ->
     data:
       editar: editar
       eliminar: eliminar
+      nuevos: nuevos
+      id: asignatura
+      nombre: $("#asignatura_nombre").val()
+      descripcion: $("#asignatura_descripcion").val()
+      tags: $("#asignatura_tags").val()
     dataType: "json"
     success: (json) ->
       console.log("OK")
       console.log(json)
+      window.location.replace window.location.href.replace("/edit","")
 
     error: (json) ->
       console.log("Error")
       console.log(json)
 
-marcarborrado = (objeto) ->
-  if objeto.parent().attr("id") == "new_patron_clase"
-    objeto.parent().remove()
+marcarborrado = (icono) ->
+  patron = icono.closest(".patron_clase")
+  if patron.attr("id") == "new_patron_clase"
+    patron.remove()
   else
-    objeto.parent().toggleClass("disabled")
-    objeto.parent().find(".badge input").prop("disabled", objeto.parent().hasClass("disabled"))
-    objeto.toggleClass("glyphicon-ban-circle")
+    patron.toggleClass("disabled")
+    patron.find(".badge input").prop("disabled", patron.hasClass("disabled"))
+    icono.toggleClass("glyphicon-ban-circle")

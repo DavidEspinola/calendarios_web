@@ -94,6 +94,29 @@ class PatronClasesController < ApplicationController
       end
     end
 
+    nuevos = params[:nuevos]
+
+    if nuevos != nil
+      if nuevos.is_a?(Hash)
+        @patrones_hash = nuevos.values
+      else
+        @patrones_hash = nuevos
+      end
+      @resultado[:creaciones][:total] = @patrones_hash.size
+      @patrones_hash.each do |patron_hash|
+        unless PatronClase.create(patron_hash)
+          @resultado[:creaciones][:error] += 1
+        end
+      end
+    end
+
+    nombre = params[:nombre]
+    descripcion = params[:descripcion]
+    tags = params[:tags]
+
+    @asignatura = Asignatura.find(params[:id])
+    @asignatura.update(nombre: nombre, descripcion: descripcion, tags: tags)
+
     respond_to do |format|
       format.json { render json: @resultado }
     end
