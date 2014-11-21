@@ -16,4 +16,5 @@
 //= require jquery-ui/sortable
 //= require bootstrap-tagsinput
 //= require bootstrap/modal
+//= require bootstrap/dropdown
 //= require_tree .

@@ -10,10 +10,15 @@
 <body>
 <div>
 	<nav class="navbar navbar-default" role="navigation">
-		<ul class="nav navbar-nav">
-			<li><%= link_to "Clases", clases_path %></li>
-			<li><%= link_to "Asignaturas", asignaturas_path %></li>
-		</ul>
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li><%= link_to "Clases", clases_path %></li>
+				<li><%= link_to "Asignaturas", asignaturas_path %></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<%= render 'layouts/user_widget' %>
+			</ul>
+		</div>
 	</nav>
 </div>
 <div id="contenido">
