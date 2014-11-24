@@ -20,6 +20,18 @@
 			</ul>
 		</div>
 	</nav>
+	<% if flash[:alert] %>
+		<div class="alert alert-danger alert-dismissible fade in" role="alert">
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<%= flash[:alert] %>
+		</div>
+	<% end %>
+	<% if flash[:notice] %>
+		<div class="alert alert-info alert-dismissible fade in" role="alert">
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
 </div>
 <div id="contenido">
 	<%= yield %>
