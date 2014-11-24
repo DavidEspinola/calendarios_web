@@ -1,4 +1,6 @@
+# coding: utf-8
 class AsignaturasController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_asignatura, only: [:update, :destroy]
   before_action :set_asignatura_patron, only: [:show, :edit]
 
@@ -34,7 +36,7 @@ class AsignaturasController < ApplicationController
 
     respond_to do |format|
       if @asignatura.save
-        format.html { redirect_to @asignatura, notice: 'La asignatura se ha creado con exito.' }
+        format.html { redirect_to @asignatura, notice: 'La asignatura se ha creado con éxito.' }
       else
         format.html { render :new }
       end
@@ -46,7 +48,7 @@ class AsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @asignatura.update(asignatura_params)
-        format.html { redirect_to @asignatura, notice: 'La asignatura se ha editado con exito.' }
+        format.html { redirect_to @asignatura, notice: 'La asignatura se ha editado con éxito.' }
       else
         format.html { render :edit }
       end
@@ -58,7 +60,7 @@ class AsignaturasController < ApplicationController
   def destroy
     @asignatura.destroy
     respond_to do |format|
-      format.html { redirect_to asignaturas_url, notice: 'La asignatura se ha eliminado con exito.' }
+      format.html { redirect_to asignaturas_url, notice: 'La asignatura se ha eliminado con éxito.' }
     end
   end
 

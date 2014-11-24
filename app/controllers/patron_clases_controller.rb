@@ -1,4 +1,5 @@
 class PatronClasesController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_patron_clase, only: [:show, :edit, :update, :destroy]
 
   # GET /patron_clases

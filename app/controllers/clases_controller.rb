@@ -1,4 +1,6 @@
+# coding: utf-8
 class ClasesController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_clase, only: [:show, :edit, :update, :destroy]
 
   # GET /clases
@@ -28,7 +30,7 @@ class ClasesController < ApplicationController
 
     respond_to do |format|
       if @clase.save
-        format.html { redirect_to @clase, notice: 'La clase se ha creado con exito.' }
+        format.html { redirect_to @clase, notice: 'La clase se ha creado con éxito.' }
       else
         format.html { render :new }
       end
@@ -40,7 +42,7 @@ class ClasesController < ApplicationController
   def update
     respond_to do |format|
       if @clase.update(clase_params)
-        format.html { redirect_to @clase, notice: 'La clase se ha editado con exito.' }
+        format.html { redirect_to @clase, notice: 'La clase se ha editado con éxito.' }
       else
         format.html { render :edit }
       end
@@ -52,7 +54,7 @@ class ClasesController < ApplicationController
   def destroy
     @clase.destroy
     respond_to do |format|
-      format.html { redirect_to clases_url, notice: 'La clase se ha eliminado con exito.' }
+      format.html { redirect_to clases_url, notice: 'La clase se ha eliminado con éxito.' }
     end
   end
 
